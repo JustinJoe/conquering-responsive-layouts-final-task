@@ -33,11 +33,10 @@ nav {
   margin: 0 auto;
   padding: 1rem 0;
   font-size: 1.125rem;
-  position: relative;
 }
 
 .logo {
-  display: block;
+  display: inline-block;
   padding-top: 1em;
 }
 
@@ -71,7 +70,6 @@ ion-icon {
   top: 15px;
   right: 15px;
   bottom: 0;
-  /* padding: 1em; */
   border: 1px solid transparent;
 }
 
@@ -87,7 +85,6 @@ img {
 }
 
 .btn {
-  /* padding: 1em; */
   background-color: var(--color-alt);
   border-radius: 4em;
   padding: 0.25em 1.5em;
@@ -105,6 +102,11 @@ li {
 a {
   text-decoration: none;
   color: var(--color-100);
+}
+
+a:hover,
+a:focus {
+  text-decoration: var(--color-alt) underline 5px;
 }
 
 /* =====================
@@ -240,31 +242,39 @@ button {
 ===================== */
 footer {
   background-color: var(--color-400);
-  padding: 5em 0;
+  padding: 4em 0;
 }
 
 h3 {
   color: var(--color-alt);
   font-size: 21px;
   padding-bottom: 0.5em;
+  text-align: center;
 }
 
 .footer_head {
   color: var(--color-100);
   text-align: center;
   font-size: 24px;
-  padding-bottom: 1.5em;
+}
+
+.row {
+  display: flex;
+}
+
+.center {
+  margin: 0 auto;
 }
 
 .footer_flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* gap: 3em; */
 }
 
 .footer_div {
   width: 100%;
+  padding-top: 2em;
 }
 
 .footer_text {
@@ -275,24 +285,39 @@ h3 {
 }
 
 /* =====================
-    Media Queries Section
+Media Queries Section
 ===================== */
 @media (min-width: 700px) {
-  .intro_head {
-    font-size: 5.625rem;
-  }
-
   .nav_list {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    gap: 3em;
+  }
+
+  .nav_item {
+    padding-top: 0;
+  }
+
+  .nav_item + .nav_item {
+    margin-left: 2em;
   }
 
   .menu {
     display: none;
+    position: static;
   }
 
+  .nav {
+    display: inline-block;
+  }
+
+  .break_2 {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1000px) {
   .intro {
     flex-direction: row;
     align-items: flex-end;
@@ -300,34 +325,17 @@ h3 {
 
   .intro_head {
     width: 100%;
+    font-size: 5.625rem;
   }
 
   .intro_extra {
     width: 100%;
   }
 
-  .features {
-    padding: 7em 0;
+  .intro_head + .intro_extra {
+    margin-left: 1em;
   }
 
-  .feat + .feat {
-    margin-left: 20em;
-  }
-
-  .flex {
-    flex-direction: row;
-  }
-
-  .break_2 {
-    flex-direction: row;
-  }
-
-  .footer_flex {
-    flex-direction: row;
-  }
-}
-
-@media (min-width: 1000px) {
   .breakdown .flex {
     flex-direction: row;
     align-items: flex-start;
@@ -340,5 +348,49 @@ h3 {
   .break_2 {
     flex-direction: column;
     width: 30%;
+  }
+
+  .features {
+    padding: 7em 0;
+  }
+
+  .feat + .feat {
+    margin-left: 15em;
+  }
+
+  .flex {
+    flex-direction: row;
+  }
+
+  .footer_flex {
+    flex-direction: row;
+  }
+
+  h3 {
+    text-align: left;
+  }
+
+  .center {
+    margin: 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .footer_div + .footer_div {
+    margin-left: 3em;
+  }
+
+  .main {
+    width: 30%;
+  }
+
+  .secondary {
+    width: 20%;
+  }
+
+  .main + .secondary {
+    margin-left: 15em;
   }
 }
